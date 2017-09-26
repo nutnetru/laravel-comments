@@ -58,7 +58,7 @@ class Commenter
         $commentEntity = new Comment([
             'comment'        => $comment,
             'rate'           => ($entity->getCanBeRated()) ? $rate : null,
-            'approved'       => ($entity->mustBeApproved() && ! $this->isAdmin()) ? false : true
+            'approved'       => $entity->mustBeApproved() ? false : true
         ]);
 
         $entity->comments()->save($commentEntity);
