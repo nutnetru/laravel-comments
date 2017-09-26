@@ -1,0 +1,28 @@
+{
+    "name": "nutnet/laravel-comments",
+    "description": "Extension for actuallymab/laravel-comment package. Allow comment as guest and add other meta-info.",
+    "type": "library",
+    "require": {
+        "actuallymab/laravel-comment": "^0.2",
+        "plank/laravel-metable": "^1.0"
+    },
+    "keywords": [
+        "laravel",
+        "comments",
+        "nutnet",
+        "maximkou"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "maximkou",
+            "email": "maximkou@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Nutnet\\LaravelComments\\": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
