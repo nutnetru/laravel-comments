@@ -30,10 +30,6 @@ class Commenter
      */
     public function comment($entity, $comment, $user = null, array $meta = [])
     {
-        if (!$this->isValidCommentable($entity)) {
-            throw new \InvalidArgumentException('Commentable entity class must use Commentable trait.');
-        }
-
         $rate = null;
         if (!empty($meta['rate'])) {
             $rate = $meta['rate'];
@@ -41,10 +37,6 @@ class Commenter
         }
 
         if (null !== $user) {
-            if (!$this->isValidUser($user)) {
-                throw new \InvalidArgumentException('User entity class must use CanComment trait.');
-            }
-
             $result = $user->comment($entity, $comment, $rate);
         } else {
             $result = $this->createGuestComment($entity, $comment, $rate);
@@ -72,35 +64,5 @@ class Commenter
         $entity->comments()->save($commentEntity);
 
         return $commentEntity;
-    }
-
-    /**
-     * @param $class
-     * @param $traitName
-     * @return bool
-     */
-    private function isUseTrait($class, $traitName)
-    {
-        $uses = class_uses($class, true);
-
-        return in_array($traitName, $uses);
-    }
-
-    /**
-     * @param $user
-     * @return bool
-     */
-    private function isValidUser($user)
-    {
-        return $this->isUseTrait(get_class($user), 'Nutnet\LaravelComments\CanComment');
-    }
-
-    /**
-     * @param $entity
-     * @return bool
-     */
-    private function isValidCommentable($entity)
-    {
-        return $this->isUseTrait(get_class($entity), 'Actuallymab\LaravelComment\Commentable');
     }
 }

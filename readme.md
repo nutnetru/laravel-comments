@@ -30,6 +30,7 @@ Optionally add alias for `Nutnet\LaravelComments\Facades\Commenter` facade.
 All usage is identical to original package, except some moments:
 
 1. Use `Nutnet\LaravelComments\CanComment` trait instead of original.
+1. Use `Nutnet\LaravelComments\Commentable` trait instead of original.
 1. Use `Nutnet\LaravelComments\Models\Comment` model instead of original.
 
 ##### As authorized user:
