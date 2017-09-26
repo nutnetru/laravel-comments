@@ -11,16 +11,6 @@ use Nutnet\LaravelComments\Models\Comment;
 trait Commentable
 {
     /**
-     * @var bool
-     */
-    protected $canBeRated = false;
-
-    /**
-     * @var bool
-     */
-    protected $mustBeApproved = false;
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function comments()
